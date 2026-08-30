@@ -124,3 +124,9 @@ docker run --rm pw-framework
 ## Built while learning
 
 This framework was built to consolidate and showcase the skills from the *Playwright Python Automation Testing* course — turning the syllabus (Python basics → Pytest → Playwright UI → API → network mocking → framework design → CI) into a working, runnable portfolio project.
+
+---
+
+## License
+
+[MIT](LICENSE) — fork it, change it, ship it. Attribution appreciated, not required.
