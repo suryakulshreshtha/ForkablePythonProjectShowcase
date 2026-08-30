@@ -1,0 +1,23 @@
+# Pinning without automation is just deferred bit-rot: requirements.txt pins
+# exact versions, so without this they silently age until a fork fails to
+# resolve or a CVE goes unnoticed.
+version: 2
+updates:
+  - package-ecosystem: pip
+    directory: "/"
+    schedule:
+      interval: weekly
+    groups:
+      # One PR for the test stack rather than five. Reviewing pytest and its
+      # plugins together is also the only way to catch a plugin that has not
+      # kept up with a pytest major.
+      test-stack:
+        patterns: ["pytest*", "playwright"]
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ["*"]
