@@ -1,38 +1,24 @@
-name: Playwright Tests
+name: CI
 
-# Run on every push / PR to the main branch, plus a manual trigger.
 on:
   push:
-    branches: [main, master]
+    branches: [main]
+    paths-ignore: ["**.md", "LICENSE"]   # a typo fix should not cost minutes
   pull_request:
-    branches: [main, master]
   workflow_dispatch:
 
+# Least privilege. A called workflow can only reduce this, never add to it.
+permissions:
+  contents: read
+
+# Concurrency belongs in the CALLER: it owns the trigger, so it owns the
+# question of what supersedes what.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-
-      - name: Install Playwright browsers
-        run: playwright install --with-deps
-
-      - name: Run tests
-        run: pytest --tracing retain-on-failure --screenshot only-on-failure
-
-      - name: Upload HTML report
-        if: always()            # upload even when tests fail
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-report
-          path: reports/
+  suite:
+    uses: suryakulshreshtha/.github/.github/workflows/python-playwright.yml@v1
+    with:
+      browsers: '["chromium"]'
