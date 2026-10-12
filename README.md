@@ -5,7 +5,7 @@
 ![Playwright](https://img.shields.io/badge/Playwright-1.56-2EAD33?logo=playwright&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3.12-3776AB?logo=python&logoColor=white)
 ![Pytest](https://img.shields.io/badge/Pytest-9.0-0A9EDC?logo=pytest&logoColor=white)
-![CI](https://img.shields.io/badge/CI-GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)
+[![CI](https://github.com/suryakulshreshtha/ForkablePythonProjectShowcase/actions/workflows/tests.yml/badge.svg)](https://github.com/suryakulshreshtha/ForkablePythonProjectShowcase/actions/workflows/tests.yml)
 
 ---
 
