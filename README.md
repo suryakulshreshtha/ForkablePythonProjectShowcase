@@ -1,3 +1,7 @@
+<!-- forkable-card:start (added by apply_cards.py; re-run it to update) -->
+![Python Project Showcase: end-to-end test automation framework with UI and API tests, Page Object Model, network mocking, Docker and CI](.github/assets/forkable-card.png)
+<!-- forkable-card:end -->
+
 # 🎭 Playwright Python Pytest Framework
 
 > An end-to-end test automation framework built with **Playwright + Python + Pytest**, applying the concepts from the *Playwright Python Automation Testing* course. UI automation, API testing, network mocking, the Page Object Model, data-driven tests, Docker, and CI — all in one runnable project.
